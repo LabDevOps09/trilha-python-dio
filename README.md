@@ -1,4 +1,4 @@
-# Sistema Bancário
+# Sistema Bancário ( Desafio 1)
 
 Este é um simples sistema bancário em Python que permite ao usuário realizar operações de depósito, saque e visualizar o extrato da conta. A seguir estão as principais funcionalidades implementadas:
 
@@ -84,6 +84,53 @@ Saque: R$ 100.00
 Saldo atual: R$ 100.00
 ==========================================
 
+# 🏦 Sistema Bancário Simples (Desafio 2)
+
+Este é um sistema bancário simples em Python que permite a gestão de contas e usuários. O programa realiza operações como depósito, saque, exibição de extratos, criação de novos usuários e contas, e listagem de contas.
+
+## Funcionalidades
+
+O programa possui as seguintes funcionalidades:
+
+1. **💰 Depositar**: Permite ao usuário realizar um depósito na conta.
+2. **💵 Sacar**: Permite ao usuário realizar um saque da conta, respeitando limites de saldo e quantidade de saques.
+3. **📊 Extrato**: Exibe o extrato da conta, mostrando depósitos e saques realizados.
+4. **👤 Cadastrar Usuário**: Cria um novo usuário, armazenando informações como nome, data de nascimento, CPF e endereço.
+5. **🏧 Cadastrar Conta Corrente**: Cria uma nova conta corrente vinculada a um usuário existente.
+6. **📋 Listar Contas**: Exibe todas as contas cadastradas no sistema.
+7. **🚪 Sair**: Encerra o programa.
+
+## Estrutura do Código
+
+O código foi modularizado com as seguintes funções:
+
+- `menu()`: Exibe o menu de opções para o usuário.
+- `depositar(saldo, valor, extrato)`: Realiza o depósito e atualiza o saldo e o extrato.
+- `sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques)`: Realiza o saque e atualiza o saldo e o extrato.
+- `exibir_extrato(saldo, /, *, extrato)`: Exibe o extrato da conta.
+- `criar_usuario(usuarios)`: Cadastra um novo usuário.
+- `filtrar_usuario(cpf, usuarios)`: Filtra o usuário pelo CPF.
+- `criar_conta(agencia, numero_conta, usuarios)`: Cadastra uma nova conta corrente vinculada ao usuário.
+- `listar_contas(contas)`: Lista todas as contas cadastradas.
+- `main()`: Função principal que controla a lógica do programa.
+
+## Regras de Implementação
+
+- ⚙️ A função `sacar` deve receber argumentos apenas como *keyword arguments*.
+- 🛠️ A função `depositar` deve receber argumentos apenas como *positional arguments*.
+- 📋 A função `exibir_extrato` deve receber argumentos tanto como *positional* quanto como *keyword arguments*.
+- 👥 O programa armazena os usuários em uma lista, composta por: nome, data de nascimento, CPF e endereço.
+- 🏠 O endereço deve ser informado no formato: `logradouro, nro - bairro - cidade/sigla estado`.
+- 🔢 O número da conta é sequencial, iniciando em 1.
+- 🏦 A agência é fixada como "0001".
+
+## Exemplo de Uso
+
+1. 🖥️ Inicie o programa.
+2. 📜 Escolha uma operação no menu.
+3. 👣 Siga as instruções para realizar a operação desejada.
+
+O código está estruturado para facilitar a manutenção e a adição de novas funcionalidades no futuro.
 
 
 
