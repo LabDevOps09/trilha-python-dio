@@ -16,6 +16,7 @@ def menu():
 
 
 def depositar(saldo, valor, extrato, /):
+    """Realiza um depósito."""
     if valor > 0:
         saldo += valor
         extrato += f"Depósito:\tR$ {valor:.2f}\n"
@@ -27,6 +28,7 @@ def depositar(saldo, valor, extrato, /):
 
 
 def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
+    """Realiza um saque."""
     excedeu_saldo = valor > saldo
     excedeu_limite = valor > limite
     excedeu_saques = numero_saques >= limite_saques
@@ -53,13 +55,15 @@ def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
 
 
 def exibir_extrato(saldo, /, *, extrato):
+    """Exibe o extrato da conta."""
     print("\n================ EXTRATO ================")
     print("Não foram realizadas movimentações." if not extrato else extrato)
     print(f"\nSaldo:\t\tR$ {saldo:.2f}")
     print("==========================================")
-
+    
 
 def criar_usuario(usuarios):
+    """Cadastra um novo usuário."""
     cpf = input("Informe o CPF (somente número): ")
     usuario = filtrar_usuario(cpf, usuarios)
 
@@ -77,11 +81,13 @@ def criar_usuario(usuarios):
 
 
 def filtrar_usuario(cpf, usuarios):
+    """Filtra um usuário pelo CPF."""
     usuarios_filtrados = [usuario for usuario in usuarios if usuario["cpf"] == cpf]
     return usuarios_filtrados[0] if usuarios_filtrados else None
 
 
 def criar_conta(agencia, numero_conta, usuarios):
+    """Cadastra uma nova conta corrente vinculada a um usuário."""
     cpf = input("Informe o CPF do usuário: ")
     usuario = filtrar_usuario(cpf, usuarios)
 
@@ -93,8 +99,9 @@ def criar_conta(agencia, numero_conta, usuarios):
 
 
 def listar_contas(contas):
+    """Lista todas as contas correntes cadastradas."""
     for conta in contas:
-        linha = f"""\
+        linha = f"""\ 
             Agência:\t{conta['agencia']}
             C/C:\t\t{conta['numero_conta']}
             Titular:\t{conta['usuario']['nome']}
@@ -119,12 +126,10 @@ def main():
 
         if opcao == "d":
             valor = float(input("Informe o valor do depósito: "))
-
             saldo, extrato = depositar(saldo, valor, extrato)
 
         elif opcao == "s":
             valor = float(input("Informe o valor do saque: "))
-
             saldo, extrato = sacar(
                 saldo=saldo,
                 valor=valor,
@@ -157,4 +162,6 @@ def main():
             print("Operação inválida, por favor selecione novamente a operação desejada.")
 
 
-main()
+if __name__ == "__main__":
+    main()
+
