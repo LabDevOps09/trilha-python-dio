@@ -132,6 +132,63 @@ O código foi modularizado com as seguintes funções:
 
 O código está estruturado para facilitar a manutenção e a adição de novas funcionalidades no futuro.
 
+ # Descrição do desafio: 
+
+## 1. Atualização do Menu
+O menu foi mantido na mesma estrutura, mas verifiquei se estava no lugar correto no código, dentro da função menu(). A função retorna o texto do menu formatado com a opção do usuário ser coletada pelo input(). O menu contém as seguintes opções:
+
+[d] Depositar
+[s] Sacar
+[e] Extrato
+[nc] Nova conta
+[lc] Listar contas
+[nu] Novo usuário
+[q] Sair
+
+## 2. Funções de Operações Bancárias
+As funções de operações bancárias foram organizadas e ajustadas conforme necessário:
+
+depositar(): Realiza um depósito. Se o valor informado for positivo, ele é adicionado ao saldo e registrado no extrato.
+sacar(): Realiza um saque com as seguintes verificações:
+Verifica se o valor solicitado excede o saldo disponível.
+Verifica se o valor excede o limite diário permitido.
+Verifica se o número máximo de saques foi alcançado.
+exibir_extrato(): Exibe o saldo e o extrato das operações realizadas, ou uma mensagem caso não haja movimentações.
+
+## 3. Funções de Gerenciamento de Usuários e Contas
+As funções relacionadas à criação e gestão de usuários e contas bancárias foram modeladas conforme o fluxo esperado de um sistema bancário simples:
+
+criar_usuario(): Cadastra um novo usuário. Faz a verificação do CPF para garantir que o usuário não seja duplicado.
+filtrar_usuario(): Função auxiliar que busca um usuário pelo CPF, retornando o usuário se ele existir.
+criar_conta(): Cadastra uma nova conta vinculada a um usuário existente. Se o CPF informado não estiver cadastrado, o processo de criação de conta é interrompido.
+listar_contas(): Exibe todas as contas cadastradas, mostrando os detalhes como agência, número da conta e titular.
+
+## 4. Função Principal (main())
+A função principal que controla o fluxo do programa foi ajustada para fazer uso das opções do menu. Com ela, é possível:
+
+Depositar valores.
+Sacar valores, com limite de saques e verificação de saldo.
+Exibir o extrato das movimentações.
+Cadastrar novos usuários.
+Criar contas vinculadas aos usuários.
+Listar todas as contas cadastradas.
+
+## 5. Constantes e Variáveis Globais
+As seguintes constantes e variáveis globais foram definidas dentro da função main():
+
+LIMITE_SAQUES: Número máximo de saques permitidos por dia (3 saques).
+AGENCIA: Número da agência definido como "0001".
+saldo: Valor inicial do saldo da conta (0).
+limite: Limite de valor que pode ser sacado por operação (R$ 500).
+extrato: String que armazena as operações de depósito e saque.
+numero_saques: Contador de saques realizados.
+usuarios: Lista que armazena os usuários cadastrados.
+contas: Lista que armazena as contas cadastradas.
+
+## 6. Lógica de Loop do Programa
+A estrutura while True: é utilizada para manter o programa em execução até que o usuário escolha a opção de sair (q). O código responde às seleções do menu de acordo com as funções de operações implementadas.
+
+
 
 
 
