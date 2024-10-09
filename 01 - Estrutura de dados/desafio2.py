@@ -1,6 +1,5 @@
 import textwrap
 
-
 def menu():
     menu = """\n
     ================ MENU ================
@@ -60,7 +59,7 @@ def exibir_extrato(saldo, /, *, extrato):
     print("Não foram realizadas movimentações." if not extrato else extrato)
     print(f"\nSaldo:\t\tR$ {saldo:.2f}")
     print("==========================================")
-    
+
 
 def criar_usuario(usuarios):
     """Cadastra um novo usuário."""
@@ -96,7 +95,6 @@ def criar_conta(agencia, numero_conta, usuarios):
         return {"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario}
 
     print("\n@@@ Usuário não encontrado, fluxo de criação de conta encerrado! @@@")
-
 
 def listar_contas(contas):
     """Lista todas as contas correntes cadastradas."""
@@ -164,4 +162,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
